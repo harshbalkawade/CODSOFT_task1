@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class RuleBasedChatbot {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input;
+
+        System.out.println("🤖 Hello! I'm Chatbot. Ask me anything or type 'bye' to exit.");
+
+        while (true) {
+            System.out.print("You: ");
+            input = sc.nextLine().toLowerCase();
+
+            // Exit condition
+            if (input.contains("bye")) {
+                System.out.println("Bot: Goodbye! Have a great day.");
+                break;
+            }
+
+            // Responses
+            if (input.contains("hi") || input.contains("hello")) {
+                System.out.println("Bot: Hello! How can I help you?");
+            } else if (input.contains("how are you")) {
+                System.out.println("Bot: I'm just a bunch of code, but I'm running great!");
+            } else if (input.contains("suggest me a book")) {
+                System.out.println("Bot: Do you want fiction or non-fiction?");
+                System.out.print("You: ");
+                String genre = sc.nextLine().toLowerCase();
+
+                if (genre.contains("fiction")) {
+                    System.out.println("Bot: Try reading 'The Alchemist' by Paulo Coelho.");
+                    System.out.println("Bot: Story Summary - It's about a young shepherd named Santiago who dreams of finding treasure in Egypt. "
+                                     + "He learns that true treasure lies in following one's dreams and listening to one's heart.");
+                } else if (genre.contains("non-fiction")) {
+                    System.out.println("Bot: Try reading 'Atomic Habits' by James Clear.");
+                    System.out.println("Bot: Summary - This book explains how tiny changes in your daily habits can lead to massive improvements over time. "
+                                     + "It gives practical strategies to build good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.");
+                } else {
+                    System.out.println("Bot: Sorry, I only know fiction and non-fiction books for now.");
+                }
+            } else if (input.contains("suggest me a sport")) {
+                System.out.println("Bot: Do you prefer indoor or outdoor sports?");
+                System.out.print("You: ");
+                String sportType = sc.nextLine().toLowerCase();
+                if (sportType.contains("indoor")) {
+                    System.out.println("Bot: Try Table Tennis, Badminton, or Chess.");
+                } else if (sportType.contains("outdoor")) {
+                    System.out.println("Bot: How about Football, Cricket, or Basketball?");
+                } else {
+                    System.out.println("Bot: I'm not sure. Try saying 'indoor' or 'outdoor'.");
+                }
+            } else if (input.contains("i am bored")) {
+                System.out.println("Bot: You can read a book, play a game, or go for a walk. Want a suggestion?");
+            } else if (input.contains("i am hungry")) {
+                System.out.println("Bot: Grab a snack! How about Maggi, a sandwich, or order from Swiggy?");
+            } else {
+                System.out.println("Bot: Sorry, I don't understand that. Try asking something else.");
+            }
+        }
+
+        sc.close();
+    }
+}
